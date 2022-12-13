@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  server:
+    build:  server
+  client-main:
+    build:  client/main
+  client-controller:
+    build:  client/controller
+  proxy:
+    build:  proxy
+    ports:
+      - 8080:80
