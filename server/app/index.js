@@ -4,13 +4,6 @@ const app = express()
 var http = require('http').createServer(app);
 
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-})
-app.get('/Game.js', (req, res) => {
-  res.sendFile(__dirname + "/Game.js");
-})
-
 http.listen(8112, () => {
 	console.log('Listen on port 8112!')
 })
@@ -55,16 +48,6 @@ function disconnectUnecessaryPlayers() {
 }
 
 var nScreens = 0
-
-app.use(express.static(__dirname + '/Public'));
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/Game.js', function (req, res) {
-  res.sendFile(__dirname + '/Game.js');
-});
-
 
 io.on('connection', function (socket) {
   if (socket.handshake.query['type'] == 'controller') {
